@@ -1,0 +1,25 @@
+{
+  "chain": "Arbitrum One",
+  "chainId": 42161,
+  "status": "pre-deployment",
+  "deployer": "0xA054f831B562e729F8D268291EBde1B2EDcFb84F",
+  "contracts": {
+    "USDC": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+    "ERC8004IdentityRegistry": "DEPLOY_PENDING",
+    "AIPartnershipBondsV2": "DEPLOY_PENDING",
+    "AIAccountabilityBondsV2": "DEPLOY_PENDING",
+    "ERC8004ReputationRegistry": "DEPLOY_PENDING",
+    "ERC8004ValidationRegistry": "DEPLOY_PENDING",
+    "VaultfireERC8004Adapter": "DEPLOY_PENDING",
+    "VaultfireNameService": "DEPLOY_PENDING",
+    "FlourishingMetricsOracle": "DEPLOY_PENDING",
+    "MultisigGovernance": "DEPLOY_PENDING",
+    "VaultfireTeleporterBridge": "DEPLOY_PENDING",
+    "DilithiumAttestor": "DEPLOY_PENDING",
+    "ProductionBeliefAttestationVerifier": "DEPLOY_PENDING",
+    "BeliefAttestationVerifier": "DEPLOY_PENDING",
+    "MissionEnforcement": "DEPLOY_PENDING",
+    "AntiSurveillance": "DEPLOY_PENDING",
+    "PrivacyGuarantees": "DEPLOY_PENDING"
+  }
+}

@@ -1,0 +1,395 @@
+/**
+ * Vaultfire Protocol — Arbitrum One
+ * Chain configuration and contract address registry
+ */
+
+import type { Address, ContractAddresses, ChainConfig } from './types.js';
+
+// ─── Contract addresses ───────────────────────────────────────────────────────
+
+/**
+ * Contract addresses for Vaultfire Protocol on Arbitrum One.
+ * Vaultfire-specific contracts are DEPLOY_PENDING (not yet deployed).
+ * USDC is the real Circle-native USDC on Arbitrum.
+ */
+export const ARBITRUM_CONTRACTS: ContractAddresses = {
+  // ✅ Real address — Circle-native USDC on Arbitrum One
+  USDC: '0xaf88d065e77c8cC2239327C5EDb3A432268e5831' as Address,
+
+  // 🔜 DEPLOY_PENDING — Vaultfire contracts not yet deployed on Arbitrum
+  ERC8004IdentityRegistry: 'DEPLOY_PENDING',
+  AIPartnershipBondsV2: 'DEPLOY_PENDING',
+  AIAccountabilityBondsV2: 'DEPLOY_PENDING',
+  ERC8004ReputationRegistry: 'DEPLOY_PENDING',
+  ERC8004ValidationRegistry: 'DEPLOY_PENDING',
+  VaultfireERC8004Adapter: 'DEPLOY_PENDING',
+  VaultfireNameService: 'DEPLOY_PENDING',
+  FlourishingMetricsOracle: 'DEPLOY_PENDING',
+  MultisigGovernance: 'DEPLOY_PENDING',
+  VaultfireTeleporterBridge: 'DEPLOY_PENDING',
+  DilithiumAttestor: 'DEPLOY_PENDING',
+  ProductionBeliefAttestationVerifier: 'DEPLOY_PENDING',
+  BeliefAttestationVerifier: 'DEPLOY_PENDING',
+  MissionEnforcement: 'DEPLOY_PENDING',
+  AntiSurveillance: 'DEPLOY_PENDING',
+  PrivacyGuarantees: 'DEPLOY_PENDING',
+};
+
+// ─── Chain configuration ──────────────────────────────────────────────────────
+
+export const ARBITRUM_CONFIG: ChainConfig = {
+  chain: 'arbitrum-one',
+  chainId: 42161,
+  rpc: 'https://arb1.arbitrum.io/rpc',
+  explorer: 'https://arbiscan.io',
+  explorerApi: 'https://api.arbiscan.io/api',
+  usdc: '0xaf88d065e77c8cC2239327C5EDb3A432268e5831' as Address,
+  nativeToken: 'ETH',
+  deployer: '0xA054f831B562e729F8D268291EBde1B2EDcFb84F' as Address,
+  contracts: ARBITRUM_CONTRACTS,
+};
+
+// ─── Viem chain definition ────────────────────────────────────────────────────
+
+export const arbitrumChainDef = {
+  id: 42161,
+  name: 'Arbitrum One',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Ether',
+    symbol: 'ETH',
+  },
+  rpcUrls: {
+    default: {
+      http: ['https://arb1.arbitrum.io/rpc'],
+    },
+    public: {
+      http: ['https://arb1.arbitrum.io/rpc'],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Arbiscan',
+      url: 'https://arbiscan.io',
+    },
+  },
+} as const;
+
+// ─── ABI definitions ──────────────────────────────────────────────────────────
+
+/** ERC-8004 Identity Registry — core agent registration */
+export const ERC8004_IDENTITY_REGISTRY_ABI = [
+  {
+    name: 'registerAgent',
+    type: 'function',
+    stateMutability: 'nonpayable',
+    inputs: [
+      { name: 'agentAddress', type: 'address' },
+      { name: 'name', type: 'string' },
+      { name: 'metadataUri', type: 'string' },
+      { name: 'capabilities', type: 'uint256' },
+    ],
+    outputs: [{ name: 'agentId', type: 'uint256' }],
+  },
+  {
+    name: 'getAgent',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [{ name: 'agentAddress', type: 'address' }],
+    outputs: [
+      { name: 'agentId', type: 'uint256' },
+      { name: 'name', type: 'string' },
+      { name: 'metadataUri', type: 'string' },
+      { name: 'capabilities', type: 'uint256' },
+      { name: 'registeredAt', type: 'uint256' },
+      { name: 'isActive', type: 'bool' },
+    ],
+  },
+  {
+    name: 'isRegistered',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [{ name: 'agentAddress', type: 'address' }],
+    outputs: [{ name: '', type: 'bool' }],
+  },
+  {
+    name: 'AgentRegistered',
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'agentId', type: 'uint256', indexed: true },
+      { name: 'agentAddress', type: 'address', indexed: true },
+      { name: 'name', type: 'string', indexed: false },
+      { name: 'registeredAt', type: 'uint256', indexed: false },
+    ],
+  },
+] as const;
+
+/** AI Partnership Bonds V2 — peer-to-peer trust bonds */
+export const AI_PARTNERSHIP_BONDS_V2_ABI = [
+  {
+    name: 'createBond',
+    type: 'function',
+    stateMutability: 'payable',
+    inputs: [
+      { name: 'partnerAddress', type: 'address' },
+      { name: 'partnershipType', type: 'uint8' },
+      { name: 'tier', type: 'uint8' },
+      { name: 'expiresAt', type: 'uint256' },
+      { name: 'termsUri', type: 'string' },
+    ],
+    outputs: [
+      { name: 'bondId', type: 'uint256' },
+      { name: 'bondAddress', type: 'address' },
+    ],
+  },
+  {
+    name: 'getBond',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [{ name: 'bondId', type: 'uint256' }],
+    outputs: [
+      { name: 'initiator', type: 'address' },
+      { name: 'partner', type: 'address' },
+      { name: 'partnershipType', type: 'uint8' },
+      { name: 'tier', type: 'uint8' },
+      { name: 'stakedAmount', type: 'uint256' },
+      { name: 'expiresAt', type: 'uint256' },
+      { name: 'isActive', type: 'bool' },
+      { name: 'termsUri', type: 'string' },
+    ],
+  },
+  {
+    name: 'getActiveBonds',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [{ name: 'agentAddress', type: 'address' }],
+    outputs: [{ name: 'bondIds', type: 'uint256[]' }],
+  },
+  {
+    name: 'dissolve',
+    type: 'function',
+    stateMutability: 'nonpayable',
+    inputs: [{ name: 'bondId', type: 'uint256' }],
+    outputs: [],
+  },
+  {
+    name: 'BondCreated',
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'bondId', type: 'uint256', indexed: true },
+      { name: 'initiator', type: 'address', indexed: true },
+      { name: 'partner', type: 'address', indexed: true },
+      { name: 'tier', type: 'uint8', indexed: false },
+      { name: 'stakedAmount', type: 'uint256', indexed: false },
+    ],
+  },
+] as const;
+
+/** AI Accountability Bonds V2 — staked mission accountability */
+export const AI_ACCOUNTABILITY_BONDS_V2_ABI = [
+  {
+    name: 'createBond',
+    type: 'function',
+    stateMutability: 'payable',
+    inputs: [
+      { name: 'subjectAddress', type: 'address' },
+      { name: 'tier', type: 'uint8' },
+      { name: 'missionUri', type: 'string' },
+      { name: 'slashCondition', type: 'string' },
+      { name: 'arbitratorAddress', type: 'address' },
+    ],
+    outputs: [{ name: 'bondId', type: 'uint256' }],
+  },
+  {
+    name: 'getBond',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [{ name: 'bondId', type: 'uint256' }],
+    outputs: [
+      { name: 'subject', type: 'address' },
+      { name: 'bonder', type: 'address' },
+      { name: 'tier', type: 'uint8' },
+      { name: 'stakedAmount', type: 'uint256' },
+      { name: 'missionUri', type: 'string' },
+      { name: 'slashCondition', type: 'string' },
+      { name: 'arbitratorAddress', type: 'address' },
+      { name: 'createdAt', type: 'uint256' },
+      { name: 'isActive', type: 'bool' },
+    ],
+  },
+  {
+    name: 'slash',
+    type: 'function',
+    stateMutability: 'nonpayable',
+    inputs: [
+      { name: 'bondId', type: 'uint256' },
+      { name: 'reason', type: 'string' },
+    ],
+    outputs: [],
+  },
+  {
+    name: 'AccountabilityBondCreated',
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'bondId', type: 'uint256', indexed: true },
+      { name: 'subject', type: 'address', indexed: true },
+      { name: 'bonder', type: 'address', indexed: true },
+      { name: 'tier', type: 'uint8', indexed: false },
+      { name: 'stakedAmount', type: 'uint256', indexed: false },
+    ],
+  },
+] as const;
+
+/** ERC-8004 Reputation Registry — Street Cred scoring */
+export const ERC8004_REPUTATION_REGISTRY_ABI = [
+  {
+    name: 'getReputation',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [{ name: 'agentAddress', type: 'address' }],
+    outputs: [
+      { name: 'identityScore', type: 'uint256' },
+      { name: 'bondExistsScore', type: 'uint256' },
+      { name: 'bondActiveScore', type: 'uint256' },
+      { name: 'tierBonusScore', type: 'uint256' },
+      { name: 'multipleBondsScore', type: 'uint256' },
+      { name: 'total', type: 'uint256' },
+      { name: 'bondCount', type: 'uint256' },
+      { name: 'highestTier', type: 'uint8' },
+    ],
+  },
+  {
+    name: 'ratePeer',
+    type: 'function',
+    stateMutability: 'nonpayable',
+    inputs: [
+      { name: 'peerAddress', type: 'address' },
+      { name: 'rating', type: 'uint8' },
+      { name: 'comment', type: 'string' },
+      { name: 'category', type: 'uint8' },
+    ],
+    outputs: [{ name: 'ratingId', type: 'uint256' }],
+  },
+  {
+    name: 'getPeerRatings',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [{ name: 'peerAddress', type: 'address' }],
+    outputs: [
+      { name: 'totalRatings', type: 'uint256' },
+      { name: 'averageRating', type: 'uint256' },
+      { name: 'ratingIds', type: 'uint256[]' },
+    ],
+  },
+  {
+    name: 'PeerRated',
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'ratingId', type: 'uint256', indexed: true },
+      { name: 'rater', type: 'address', indexed: true },
+      { name: 'peer', type: 'address', indexed: true },
+      { name: 'rating', type: 'uint8', indexed: false },
+      { name: 'category', type: 'uint8', indexed: false },
+    ],
+  },
+] as const;
+
+/** Vaultfire Name Service — human-readable agent names */
+export const VAULTFIRE_NAME_SERVICE_ABI = [
+  {
+    name: 'lookup',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [{ name: 'name', type: 'string' }],
+    outputs: [
+      { name: 'resolvedAddress', type: 'address' },
+      { name: 'owner', type: 'address' },
+      { name: 'expiresAt', type: 'uint256' },
+      { name: 'exists', type: 'bool' },
+    ],
+  },
+  {
+    name: 'reverseLookup',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [{ name: 'agentAddress', type: 'address' }],
+    outputs: [{ name: 'name', type: 'string' }],
+  },
+  {
+    name: 'register',
+    type: 'function',
+    stateMutability: 'payable',
+    inputs: [
+      { name: 'name', type: 'string' },
+      { name: 'agentAddress', type: 'address' },
+      { name: 'durationYears', type: 'uint256' },
+    ],
+    outputs: [],
+  },
+  {
+    name: 'NameRegistered',
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'name', type: 'string', indexed: false },
+      { name: 'owner', type: 'address', indexed: true },
+      { name: 'resolvedAddress', type: 'address', indexed: true },
+      { name: 'expiresAt', type: 'uint256', indexed: false },
+    ],
+  },
+] as const;
+
+// ─── Street Cred scoring constants ───────────────────────────────────────────
+
+export const STREET_CRED_SCORING = {
+  IDENTITY: 30,
+  BOND_EXISTS: 25,
+  BOND_ACTIVE: 15,
+  TIER_BONUS_BRONZE: 5,
+  TIER_BONUS_SILVER: 10,
+  TIER_BONUS_GOLD: 15,
+  TIER_BONUS_PLATINUM: 20,
+  MULTIPLE_BONDS: 5,
+  MAX_POSSIBLE: 95,
+} as const;
+
+export const STREET_CRED_TIERS = {
+  UNRANKED: { min: 0, max: 0, label: 'Unranked' },
+  NOVICE: { min: 1, max: 29, label: 'Novice' },
+  TRUSTED: { min: 30, max: 54, label: 'Trusted' },
+  ELITE: { min: 55, max: 79, label: 'Elite' },
+  LEGEND: { min: 80, max: 95, label: 'Legend' },
+} as const;
+
+// ─── Partnership type enum values (matching on-chain uint8) ──────────────────
+
+export const PARTNERSHIP_TYPE_VALUES = {
+  collaboration: 0,
+  delegation: 1,
+  'service-provider': 2,
+  'data-sharing': 3,
+  'oracle-consumer': 4,
+} as const;
+
+// ─── Bond tier enum values (matching on-chain uint8) ─────────────────────────
+
+export const BOND_TIER_ENUM_VALUES = {
+  Bronze: 0,
+  Silver: 1,
+  Gold: 2,
+  Platinum: 3,
+} as const;
+
+// ─── Rating category enum values (matching on-chain uint8) ───────────────────
+
+export const RATING_CATEGORY_VALUES = {
+  reliability: 0,
+  accuracy: 1,
+  speed: 2,
+  ethics: 3,
+  overall: 4,
+} as const;

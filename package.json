@@ -1,0 +1,58 @@
+{
+  "name": "@vaultfire/arbitrum",
+  "version": "1.0.0",
+  "description": "Vaultfire Protocol on Arbitrum One — AI agent trust, accountability bonds, and belief-weighted governance",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "contracts/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "node --test dist/tests/arbitrum.test.js",
+    "test:ts": "npx tsx --test tests/arbitrum.test.ts",
+    "verify": "python3 scripts/verify_contracts.py",
+    "verify:json": "python3 scripts/verify_contracts.py --json",
+    "clean": "rm -rf dist/",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ghostkey316/vaultfire-arbitrum"
+  },
+  "author": "Ghostkey316",
+  "license": "MIT",
+  "keywords": [
+    "vaultfire",
+    "arbitrum",
+    "ai-trust",
+    "agent",
+    "blockchain",
+    "accountability",
+    "know-your-agent",
+    "kya",
+    "erc-8004",
+    "bonds",
+    "reputation",
+    "web3",
+    "arbitrum-one",
+    "usdc",
+    "defi",
+    "governance"
+  ],
+  "dependencies": {
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
