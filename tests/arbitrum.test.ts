@@ -105,45 +105,53 @@ describe('Vaultfire Arbitrum — Config Validation', () => {
 
 describe('Vaultfire Arbitrum — Contract Addresses', () => {
 
-  it('TC-011: USDC is the only non-DEPLOY_PENDING address', () => {
+  it('TC-011: All contract addresses are real deployed addresses (none are DEPLOY_PENDING)', () => {
     const contracts = ARBITRUM_CONTRACTS;
-    const realAddresses = Object.entries(contracts)
-      .filter(([, v]) => v !== 'DEPLOY_PENDING')
+    const pendingAddresses = Object.entries(contracts)
+      .filter(([, v]) => v === 'DEPLOY_PENDING')
       .map(([k]) => k);
-    assert.deepEqual(realAddresses, ['USDC']);
+    assert.deepEqual(pendingAddresses, []);
   });
 
   it('TC-012: USDC address matches config', () => {
     assert.strictEqual(ARBITRUM_CONTRACTS.USDC, ARBITRUM_CONFIG.usdc);
   });
 
-  it('TC-013: ERC8004IdentityRegistry is DEPLOY_PENDING', () => {
-    assert.strictEqual(ARBITRUM_CONTRACTS.ERC8004IdentityRegistry, 'DEPLOY_PENDING');
+  it('TC-013: ERC8004IdentityRegistry has real deployed address', () => {
+    assert.strictEqual(ARBITRUM_CONTRACTS.ERC8004IdentityRegistry, '0x6298c62FDA57276DC60de9E716fbBAc23d06D5F1');
+    assert.ok(isValidAddress(ARBITRUM_CONTRACTS.ERC8004IdentityRegistry));
   });
 
-  it('TC-014: AIPartnershipBondsV2 is DEPLOY_PENDING', () => {
-    assert.strictEqual(ARBITRUM_CONTRACTS.AIPartnershipBondsV2, 'DEPLOY_PENDING');
+  it('TC-014: AIPartnershipBondsV2 has real deployed address', () => {
+    assert.strictEqual(ARBITRUM_CONTRACTS.AIPartnershipBondsV2, '0x0E777878C5b5248E1b52b09Ab5cdEb2eD6e7Da58');
+    assert.ok(isValidAddress(ARBITRUM_CONTRACTS.AIPartnershipBondsV2));
   });
 
-  it('TC-015: AIAccountabilityBondsV2 is DEPLOY_PENDING', () => {
-    assert.strictEqual(ARBITRUM_CONTRACTS.AIAccountabilityBondsV2, 'DEPLOY_PENDING');
+  it('TC-015: AIAccountabilityBondsV2 has real deployed address', () => {
+    assert.strictEqual(ARBITRUM_CONTRACTS.AIAccountabilityBondsV2, '0xfDdd2B1597c87577543176AB7f49D587876563D2');
+    assert.ok(isValidAddress(ARBITRUM_CONTRACTS.AIAccountabilityBondsV2));
   });
 
-  it('TC-016: ERC8004ReputationRegistry is DEPLOY_PENDING', () => {
-    assert.strictEqual(ARBITRUM_CONTRACTS.ERC8004ReputationRegistry, 'DEPLOY_PENDING');
+  it('TC-016: ERC8004ReputationRegistry has real deployed address', () => {
+    assert.strictEqual(ARBITRUM_CONTRACTS.ERC8004ReputationRegistry, '0x8aceF0Bc7e07B2dE35E9069663953f41B5422218');
+    assert.ok(isValidAddress(ARBITRUM_CONTRACTS.ERC8004ReputationRegistry));
   });
 
-  it('TC-017: VaultfireNameService is DEPLOY_PENDING', () => {
-    assert.strictEqual(ARBITRUM_CONTRACTS.VaultfireNameService, 'DEPLOY_PENDING');
+  it('TC-017: VaultfireNameService has real deployed address', () => {
+    assert.strictEqual(ARBITRUM_CONTRACTS.VaultfireNameService, '0x247F31bB2b5a0d28E68bf24865AA242965FF99cd');
+    assert.ok(isValidAddress(ARBITRUM_CONTRACTS.VaultfireNameService));
   });
 
   it('TC-018: Total contracts count is 17', () => {
     assert.strictEqual(Object.keys(ARBITRUM_CONTRACTS).length, 17);
   });
 
-  it('TC-019: All pending contracts have exactly the string DEPLOY_PENDING', () => {
-    const pending = Object.values(ARBITRUM_CONTRACTS).filter(v => v === 'DEPLOY_PENDING');
-    assert.strictEqual(pending.length, 16); // 17 total, 1 real (USDC)
+  it('TC-019: All 17 contract addresses are valid Ethereum addresses', () => {
+    const allAddresses = Object.values(ARBITRUM_CONTRACTS);
+    assert.strictEqual(allAddresses.length, 17);
+    for (const addr of allAddresses) {
+      assert.ok(isValidAddress(addr), `Expected valid address, got: ${addr}`);
+    }
   });
 });
 
@@ -172,90 +180,88 @@ describe('Vaultfire Arbitrum — Client Instantiation', () => {
     );
   });
 
-  it('TC-024: isFullyDeployed returns false (pre-deployment)', () => {
+  it('TC-024: isFullyDeployed returns true (all contracts deployed)', () => {
     const client = new VaultfireArbitrumClient();
-    assert.strictEqual(client.isFullyDeployed(), false);
+    assert.strictEqual(client.isFullyDeployed(), true);
   });
 
-  it('TC-025: getPendingContracts returns 16 pending contracts', () => {
+  it('TC-025: getPendingContracts returns empty array (all deployed)', () => {
     const client = new VaultfireArbitrumClient();
-    assert.strictEqual(client.getPendingContracts().length, 16);
+    assert.strictEqual(client.getPendingContracts().length, 0);
   });
 
-  it('TC-026: getPendingContracts does not include USDC', () => {
+  it('TC-026: getPendingContracts does not include any contract names', () => {
     const client = new VaultfireArbitrumClient();
     const pending = client.getPendingContracts();
-    assert.ok(!pending.includes('USDC'));
+    assert.deepEqual(pending, []);
   });
 });
 
-describe('Vaultfire Arbitrum — DEPLOY_PENDING Detection', () => {
+describe('Vaultfire Arbitrum — Deployed State Validation', () => {
 
-  it('TC-027: registerAgent throws DeployPendingError when wallet present', async () => {
-    const client = new VaultfireArbitrumClient({
-      privateKey: '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80',
-    });
+  it('TC-027: registerAgent throws NoWalletError (not DeployPendingError) when no wallet', async () => {
+    const client = new VaultfireArbitrumClient();
     await assert.rejects(
       () => client.registerAgent({
         agentAddress: '0xA054f831B562e729F8D268291EBde1B2EDcFb84F',
         name: 'TestAgent',
       }),
-      DeployPendingError
+      NoWalletError
     );
   });
 
-  it('TC-028: isAgentRegistered throws DeployPendingError', async () => {
+  it('TC-028: registerAgent does NOT throw DeployPendingError (contract is deployed)', async () => {
     const client = new VaultfireArbitrumClient();
-    await assert.rejects(
-      () => client.isAgentRegistered('0xA054f831B562e729F8D268291EBde1B2EDcFb84F'),
-      DeployPendingError
-    );
+    try {
+      await client.registerAgent({
+        agentAddress: '0xA054f831B562e729F8D268291EBde1B2EDcFb84F',
+        name: 'TestAgent',
+      });
+    } catch (err) {
+      assert.ok(!(err instanceof DeployPendingError), 'Should not throw DeployPendingError');
+    }
   });
 
-  it('TC-029: createPartnershipBond throws DeployPendingError', async () => {
-    const client = new VaultfireArbitrumClient({
-      privateKey: '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80',
-    });
+  it('TC-029: createPartnershipBond throws NoWalletError (not DeployPendingError) when no wallet', async () => {
+    const client = new VaultfireArbitrumClient();
     await assert.rejects(
       () => client.createPartnershipBond({
         partnerAddress: '0x0000000000000000000000000000000000000001',
         partnershipType: PartnershipType.Collaboration,
         tier: BondTier.Bronze,
       }),
-      DeployPendingError
+      NoWalletError
     );
   });
 
-  it('TC-030: createAccountabilityBond throws DeployPendingError', async () => {
-    const client = new VaultfireArbitrumClient({
-      privateKey: '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80',
-    });
+  it('TC-030: createAccountabilityBond throws NoWalletError (not DeployPendingError) when no wallet', async () => {
+    const client = new VaultfireArbitrumClient();
     await assert.rejects(
       () => client.createAccountabilityBond({
         subjectAddress: '0x0000000000000000000000000000000000000001',
         tier: BondTier.Silver,
       }),
-      DeployPendingError
+      NoWalletError
     );
   });
 
-  it('TC-031: getStreetCred throws DeployPendingError', async () => {
-    const client = new VaultfireArbitrumClient();
-    await assert.rejects(
-      () => client.getStreetCred('0xA054f831B562e729F8D268291EBde1B2EDcFb84F'),
-      DeployPendingError
+  it('TC-031: ERC8004ReputationRegistry address is a valid deployed address', () => {
+    assert.ok(isValidAddress(ARBITRUM_CONTRACTS.ERC8004ReputationRegistry));
+    assert.strictEqual(
+      ARBITRUM_CONTRACTS.ERC8004ReputationRegistry,
+      '0x8aceF0Bc7e07B2dE35E9069663953f41B5422218'
     );
   });
 
-  it('TC-032: lookupVNS throws DeployPendingError', async () => {
-    const client = new VaultfireArbitrumClient();
-    await assert.rejects(
-      () => client.lookupVNS('myagent.vaultfire'),
-      DeployPendingError
+  it('TC-032: VaultfireNameService address is a valid deployed address', () => {
+    assert.ok(isValidAddress(ARBITRUM_CONTRACTS.VaultfireNameService));
+    assert.strictEqual(
+      ARBITRUM_CONTRACTS.VaultfireNameService,
+      '0x247F31bB2b5a0d28E68bf24865AA242965FF99cd'
     );
   });
 
-  it('TC-033: DeployPendingError message includes contract name', () => {
+  it('TC-033: DeployPendingError class still works correctly (for manual error creation)', () => {
     const err = new DeployPendingError('AIPartnershipBondsV2');
     assert.ok(err.message.includes('AIPartnershipBondsV2'));
   });
@@ -271,8 +277,6 @@ describe('Vaultfire Arbitrum — DEPLOY_PENDING Detection', () => {
   });
 
   it('TC-036: NoWalletError is thrown when no privateKey provided for write ops', async () => {
-    // We can't get past DeployPendingError in pre-deployment, but we can verify
-    // NoWalletError is a proper Error subclass
     const err = new NoWalletError();
     assert.ok(err instanceof Error);
     assert.strictEqual(err.name, 'NoWalletError');

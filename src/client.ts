@@ -209,7 +209,7 @@ export class VaultfireArbitrumClient {
   }
 
   /**
-   * Returns all contract addresses (including DEPLOY_PENDING markers).
+   * Returns all contract addresses.
    */
   getContractAddresses() {
     return { ...this.contracts };
@@ -217,7 +217,7 @@ export class VaultfireArbitrumClient {
 
   /**
    * Checks whether all Vaultfire contracts have been deployed
-   * (none are DEPLOY_PENDING).
+   * (none are DEPLOY_PENDING). Returns true when all contracts are live.
    */
   isFullyDeployed(): boolean {
     return Object.values(this.contracts).every((addr) => addr !== 'DEPLOY_PENDING');
@@ -225,6 +225,7 @@ export class VaultfireArbitrumClient {
 
   /**
    * Returns a list of contracts that are still DEPLOY_PENDING.
+   * Returns an empty array when all contracts are deployed.
    */
   getPendingContracts(): string[] {
     return Object.entries(this.contracts)
@@ -237,7 +238,6 @@ export class VaultfireArbitrumClient {
   /**
    * Registers an AI agent on-chain via ERC-8004 Identity Registry.
    *
-   * @throws {DeployPendingError} if ERC8004IdentityRegistry is not deployed
    * @throws {NoWalletError} if no private key was provided
    */
   async registerAgent(params: AgentRegistrationParams): Promise<AgentRegistrationResult> {
@@ -265,8 +265,6 @@ export class VaultfireArbitrumClient {
 
   /**
    * Checks whether an agent address is registered in the ERC-8004 registry.
-   *
-   * @throws {DeployPendingError} if ERC8004IdentityRegistry is not deployed
    */
   async isAgentRegistered(agentAddress: Address): Promise<boolean> {
     const registryAddress = this.requireDeployed('ERC8004IdentityRegistry');
@@ -290,7 +288,6 @@ export class VaultfireArbitrumClient {
    *   - Gold:   0.1  ETH
    *   - Platinum: 0.5 ETH
    *
-   * @throws {DeployPendingError} if AIPartnershipBondsV2 is not deployed
    * @throws {NoWalletError} if no private key was provided
    */
   async createPartnershipBond(params: CreateBondParams): Promise<CreateBondResult> {
@@ -327,8 +324,6 @@ export class VaultfireArbitrumClient {
 
   /**
    * Returns all active partnership bond IDs for an agent.
-   *
-   * @throws {DeployPendingError} if AIPartnershipBondsV2 is not deployed
    */
   async getActiveBonds(agentAddress: Address): Promise<bigint[]> {
     const bondsAddress = this.requireDeployed('AIPartnershipBondsV2');
@@ -346,7 +341,6 @@ export class VaultfireArbitrumClient {
   /**
    * Creates an AI Accountability Bond — staked proof of mission commitment.
    *
-   * @throws {DeployPendingError} if AIAccountabilityBondsV2 is not deployed
    * @throws {NoWalletError} if no private key was provided
    */
   async createAccountabilityBond(
@@ -396,7 +390,6 @@ export class VaultfireArbitrumClient {
    *   ──────────────────────────────
    *   95   Maximum possible score
    *
-   * @throws {DeployPendingError} if ERC8004ReputationRegistry is not deployed
    */
   async getStreetCred(agentAddress: Address): Promise<StreetCredResult> {
     const reputationAddress = this.requireDeployed('ERC8004ReputationRegistry');
@@ -479,8 +472,6 @@ export class VaultfireArbitrumClient {
 
   /**
    * Looks up a Vaultfire Name Service (VNS) entry.
-   *
-   * @throws {DeployPendingError} if VaultfireNameService is not deployed
    */
   async lookupVNS(name: string): Promise<VNSLookupResult> {
     const vnsAddress = this.requireDeployed('VaultfireNameService');
@@ -505,8 +496,6 @@ export class VaultfireArbitrumClient {
 
   /**
    * Reverse-looks up the VNS name for an agent address.
-   *
-   * @throws {DeployPendingError} if VaultfireNameService is not deployed
    */
   async reverseLookupVNS(agentAddress: Address): Promise<string | null> {
     const vnsAddress = this.requireDeployed('VaultfireNameService');
@@ -526,7 +515,6 @@ export class VaultfireArbitrumClient {
   /**
    * Rates a peer agent on-chain.
    *
-   * @throws {DeployPendingError} if ERC8004ReputationRegistry is not deployed
    * @throws {NoWalletError} if no private key was provided
    * @throws {InvalidRatingError} if rating is not between 1–5
    */

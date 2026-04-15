@@ -1,6 +1,6 @@
 # Vaultfire Protocol on Arbitrum One — Know Your Agent (KYA)
 
-[![Status: Pre-Deployment](https://img.shields.io/badge/Status-Pre--Deployment-orange)](https://github.com/Ghostkey316/vaultfire-arbitrum)
+[![Status: Deployed](https://img.shields.io/badge/Status-Deployed-brightgreen)](https://github.com/Ghostkey316/vaultfire-arbitrum)
 [![Chain: Arbitrum One](https://img.shields.io/badge/Chain-Arbitrum%20One-28a0f0)](https://arbiscan.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 [![ERC-8004](https://img.shields.io/badge/ERC-8004-purple)](https://github.com/Ghostkey316/vaultfire-contracts)
@@ -35,47 +35,47 @@ The **stars of the protocol** are the bond contracts. AI Partnership Bonds and A
 
 | Feature | Description | Status |
 |---------|-------------|--------|
-| ERC-8004 Identity Registry | On-chain agent identity standard | Pre-Deployment |
-| AI Partnership Bonds V2 | Staked peer-to-peer trust bonds | Pre-Deployment |
-| AI Accountability Bonds V2 | Slashable mission enforcement bonds | Pre-Deployment |
-| Reputation Registry (Street Cred) | Composite on-chain reputation score | Pre-Deployment |
-| Validation Registry | Third-party agent attestation | Pre-Deployment |
-| Vaultfire Name Service | Human-readable agent names (.vaultfire) | Pre-Deployment |
-| Flourishing Metrics Oracle | Wellbeing and mission metrics feed | Pre-Deployment |
-| Multisig Governance | Belief-weighted multisig governance | Pre-Deployment |
-| Teleporter Bridge | Cross-chain asset and message relay | Pre-Deployment |
-| Dilithium Attestor | Quantum-resistant identity attestation | Pre-Deployment |
-| Belief Attestation Verifier | On-chain belief verification (prod) | Pre-Deployment |
-| Mission Enforcement | Automated mission term enforcement | Pre-Deployment |
-| Anti-Surveillance | Privacy-preserving agent interactions | Pre-Deployment |
-| Privacy Guarantees | Cryptographic privacy commitments | Pre-Deployment |
-| x402 Payments | USDC micropayments for agent services | Pre-Deployment |
+| ERC-8004 Identity Registry | On-chain agent identity standard | Deployed |
+| AI Partnership Bonds V2 | Staked peer-to-peer trust bonds | Deployed |
+| AI Accountability Bonds V2 | Slashable mission enforcement bonds | Deployed |
+| Reputation Registry (Street Cred) | Composite on-chain reputation score | Deployed |
+| Validation Registry | Third-party agent attestation | Deployed |
+| Vaultfire Name Service | Human-readable agent names (.vaultfire) | Deployed |
+| Flourishing Metrics Oracle | Wellbeing and mission metrics feed | Deployed |
+| Multisig Governance | Belief-weighted multisig governance | Deployed |
+| Teleporter Bridge | Cross-chain asset and message relay | Deployed |
+| Dilithium Attestor | Quantum-resistant identity attestation | Deployed |
+| Belief Attestation Verifier | On-chain belief verification (prod) | Deployed |
+| Mission Enforcement | Automated mission term enforcement | Deployed |
+| Anti-Surveillance | Privacy-preserving agent interactions | Deployed |
+| Privacy Guarantees | Cryptographic privacy commitments | Deployed |
+| x402 Payments | USDC micropayments for agent services | Deployed |
 
 ---
 
 ## Contract Addresses — Arbitrum One
 
-> **Status: Pre-Deployment.** All Vaultfire-specific contracts are pending deployment. The USDC address below is the real Circle-native USDC already live on Arbitrum One.
+> **16 contracts deployed and verified on Arbitrum One.**
 
 | Contract | Address | Explorer |
 |----------|---------|----------|
 | **USDC** (Circle-native) | `0xaf88d065e77c8cC2239327C5EDb3A432268e5831` | [Arbiscan ↗](https://arbiscan.io/address/0xaf88d065e77c8cC2239327C5EDb3A432268e5831) |
-| ERC8004IdentityRegistry | `DEPLOY_PENDING` | Pending deployment |
-| AIPartnershipBondsV2 | `DEPLOY_PENDING` | Pending deployment |
-| AIAccountabilityBondsV2 | `DEPLOY_PENDING` | Pending deployment |
-| ERC8004ReputationRegistry | `DEPLOY_PENDING` | Pending deployment |
-| ERC8004ValidationRegistry | `DEPLOY_PENDING` | Pending deployment |
-| VaultfireERC8004Adapter | `DEPLOY_PENDING` | Pending deployment |
-| VaultfireNameService | `DEPLOY_PENDING` | Pending deployment |
-| FlourishingMetricsOracle | `DEPLOY_PENDING` | Pending deployment |
-| MultisigGovernance | `DEPLOY_PENDING` | Pending deployment |
-| VaultfireTeleporterBridge | `DEPLOY_PENDING` | Pending deployment |
-| DilithiumAttestor | `DEPLOY_PENDING` | Pending deployment |
-| ProductionBeliefAttestationVerifier | `DEPLOY_PENDING` | Pending deployment |
-| BeliefAttestationVerifier | `DEPLOY_PENDING` | Pending deployment |
-| MissionEnforcement | `DEPLOY_PENDING` | Pending deployment |
-| AntiSurveillance | `DEPLOY_PENDING` | Pending deployment |
-| PrivacyGuarantees | `DEPLOY_PENDING` | Pending deployment |
+| ERC8004IdentityRegistry | [0x6298...D5F1](https://arbiscan.io/address/0x6298c62FDA57276DC60de9E716fbBAc23d06D5F1) | [Arbiscan ↗](https://arbiscan.io/address/0x6298c62FDA57276DC60de9E716fbBAc23d06D5F1) |
+| AIPartnershipBondsV2 | [0x0E77...Da58](https://arbiscan.io/address/0x0E777878C5b5248E1b52b09Ab5cdEb2eD6e7Da58) | [Arbiscan ↗](https://arbiscan.io/address/0x0E777878C5b5248E1b52b09Ab5cdEb2eD6e7Da58) |
+| AIAccountabilityBondsV2 | [0xfDdd...63D2](https://arbiscan.io/address/0xfDdd2B1597c87577543176AB7f49D587876563D2) | [Arbiscan ↗](https://arbiscan.io/address/0xfDdd2B1597c87577543176AB7f49D587876563D2) |
+| ERC8004ReputationRegistry | [0x8ace...2218](https://arbiscan.io/address/0x8aceF0Bc7e07B2dE35E9069663953f41B5422218) | [Arbiscan ↗](https://arbiscan.io/address/0x8aceF0Bc7e07B2dE35E9069663953f41B5422218) |
+| ERC8004ValidationRegistry | [0x1A80...CD3C](https://arbiscan.io/address/0x1A80F77e12f1bd04538027aed6d056f5DCcDCD3C) | [Arbiscan ↗](https://arbiscan.io/address/0x1A80F77e12f1bd04538027aed6d056f5DCcDCD3C) |
+| VaultfireERC8004Adapter | [0x6135...f155](https://arbiscan.io/address/0x613585B786af2d5ecb1c3e712CE5ffFB8f53f155) | [Arbiscan ↗](https://arbiscan.io/address/0x613585B786af2d5ecb1c3e712CE5ffFB8f53f155) |
+| VaultfireNameService | [0x247F...99cd](https://arbiscan.io/address/0x247F31bB2b5a0d28E68bf24865AA242965FF99cd) | [Arbiscan ↗](https://arbiscan.io/address/0x247F31bB2b5a0d28E68bf24865AA242965FF99cd) |
+| FlourishingMetricsOracle | [0x630C...22E7](https://arbiscan.io/address/0x630C43F763a332793C421C788B8b1CCC5A3122E7) | [Arbiscan ↗](https://arbiscan.io/address/0x630C43F763a332793C421C788B8b1CCC5A3122E7) |
+| MultisigGovernance | [0x889f...D9A4](https://arbiscan.io/address/0x889f5cfb142Bb6E72CB0C633800324C335eED9A4) | [Arbiscan ↗](https://arbiscan.io/address/0x889f5cfb142Bb6E72CB0C633800324C335eED9A4) |
+| VaultfireTeleporterBridge | [0xe2aD...DA91](https://arbiscan.io/address/0xe2aDfe84703dd6B5e421c306861Af18F962fDA91) | [Arbiscan ↗](https://arbiscan.io/address/0xe2aDfe84703dd6B5e421c306861Af18F962fDA91) |
+| DilithiumAttestor | [0xc2F7...dB38](https://arbiscan.io/address/0xc2F789d82ef55bAbb9Df38f61E606cD34628dB38) | [Arbiscan ↗](https://arbiscan.io/address/0xc2F789d82ef55bAbb9Df38f61E606cD34628dB38) |
+| ProductionBeliefAttestationVerifier | [0xe0B7...C760](https://arbiscan.io/address/0xe0B709511438D0aCfD5D2d69F40b90C4c27eC760) | [Arbiscan ↗](https://arbiscan.io/address/0xe0B709511438D0aCfD5D2d69F40b90C4c27eC760) |
+| BeliefAttestationVerifier | [0xaEBD...79e5](https://arbiscan.io/address/0xaEBD3d62DF9bF5A5b99c289756c4cd203AC879e5) | [Arbiscan ↗](https://arbiscan.io/address/0xaEBD3d62DF9bF5A5b99c289756c4cd203AC879e5) |
+| MissionEnforcement | [0x6904...6F78](https://arbiscan.io/address/0x690411685278548157409FA7AC8279A5B1Fb6F78) | [Arbiscan ↗](https://arbiscan.io/address/0x690411685278548157409FA7AC8279A5B1Fb6F78) |
+| AntiSurveillance | [0xcf64...aDcB](https://arbiscan.io/address/0xcf64D815F5424B7937aB226bC733Ed35ab6CaDcB) | [Arbiscan ↗](https://arbiscan.io/address/0xcf64D815F5424B7937aB226bC733Ed35ab6CaDcB) |
+| PrivacyGuarantees | [0x2818...7380](https://arbiscan.io/address/0x281814eF92062DA8049Fe5c4743c4Aef19a17380) | [Arbiscan ↗](https://arbiscan.io/address/0x281814eF92062DA8049Fe5c4743c4Aef19a17380) |
 
 **Deployer:** `0xA054f831B562e729F8D268291EBde1B2EDcFb84F`  
 **Chain ID:** 42161  
@@ -110,11 +110,11 @@ console.log(config.chainId);  // 42161
 console.log(config.usdc);     // '0xaf88d065e77c8cC2239327C5EDb3A432268e5831'
 
 // Check deployment status
-console.log(client.isFullyDeployed());       // false (pre-deployment)
-console.log(client.getPendingContracts());   // ['ERC8004IdentityRegistry', ...]
+console.log(client.isFullyDeployed());       // true (all 16 contracts deployed)
+console.log(client.getPendingContracts());   // [] (empty — all contracts live)
 ```
 
-### Register an Agent (post-deployment)
+### Register an Agent
 
 ```typescript
 import { VaultfireArbitrumClient } from '@vaultfire/arbitrum';
@@ -134,7 +134,7 @@ console.log('Registered:', result.transactionHash);
 console.log('Arbiscan:', client.getTransactionUrl(result.transactionHash));
 ```
 
-### Create a Partnership Bond (post-deployment)
+### Create a Partnership Bond
 
 ```typescript
 import { VaultfireArbitrumClient, BondTier, PartnershipType } from '@vaultfire/arbitrum';
@@ -311,7 +311,7 @@ This prevents plutocratic capture and aligns governance with the agents who are 
 |-------|--------|------|
 | Base | ✅ Live | [vaultfire-base](https://github.com/Ghostkey316/vaultfire-base) |
 | Avalanche | ✅ Live | [vaultfire-avalanche](https://github.com/Ghostkey316/vaultfire-avalanche) |
-| **Arbitrum One** | 🔜 Pre-Deployment | **This repo** |
+| **Arbitrum One** | ✅ Deployed | **This repo** |
 | Polygon | 🔜 Pre-Deployment | [vaultfire-polygon](https://github.com/Ghostkey316/vaultfire-polygon) |
 | Solana | 🔜 Pre-Deployment | [vaultfire-solana](https://github.com/Ghostkey316/vaultfire-solana) |
 

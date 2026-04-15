@@ -9,30 +9,30 @@ import type { Address, ContractAddresses, ChainConfig } from './types.js';
 
 /**
  * Contract addresses for Vaultfire Protocol on Arbitrum One.
- * Vaultfire-specific contracts are DEPLOY_PENDING (not yet deployed).
+ * All 16 Vaultfire-specific contracts are deployed and verified on Arbitrum One.
  * USDC is the real Circle-native USDC on Arbitrum.
  */
 export const ARBITRUM_CONTRACTS: ContractAddresses = {
   // ✅ Real address — Circle-native USDC on Arbitrum One
   USDC: '0xaf88d065e77c8cC2239327C5EDb3A432268e5831' as Address,
 
-  // 🔜 DEPLOY_PENDING — Vaultfire contracts not yet deployed on Arbitrum
-  ERC8004IdentityRegistry: 'DEPLOY_PENDING',
-  AIPartnershipBondsV2: 'DEPLOY_PENDING',
-  AIAccountabilityBondsV2: 'DEPLOY_PENDING',
-  ERC8004ReputationRegistry: 'DEPLOY_PENDING',
-  ERC8004ValidationRegistry: 'DEPLOY_PENDING',
-  VaultfireERC8004Adapter: 'DEPLOY_PENDING',
-  VaultfireNameService: 'DEPLOY_PENDING',
-  FlourishingMetricsOracle: 'DEPLOY_PENDING',
-  MultisigGovernance: 'DEPLOY_PENDING',
-  VaultfireTeleporterBridge: 'DEPLOY_PENDING',
-  DilithiumAttestor: 'DEPLOY_PENDING',
-  ProductionBeliefAttestationVerifier: 'DEPLOY_PENDING',
-  BeliefAttestationVerifier: 'DEPLOY_PENDING',
-  MissionEnforcement: 'DEPLOY_PENDING',
-  AntiSurveillance: 'DEPLOY_PENDING',
-  PrivacyGuarantees: 'DEPLOY_PENDING',
+  // ✅ Deployed — Vaultfire contracts live on Arbitrum One (deployed 2026-04-15)
+  ERC8004IdentityRegistry: '0x6298c62FDA57276DC60de9E716fbBAc23d06D5F1' as Address,
+  AIPartnershipBondsV2: '0x0E777878C5b5248E1b52b09Ab5cdEb2eD6e7Da58' as Address,
+  AIAccountabilityBondsV2: '0xfDdd2B1597c87577543176AB7f49D587876563D2' as Address,
+  ERC8004ReputationRegistry: '0x8aceF0Bc7e07B2dE35E9069663953f41B5422218' as Address,
+  ERC8004ValidationRegistry: '0x1A80F77e12f1bd04538027aed6d056f5DCcDCD3C' as Address,
+  VaultfireERC8004Adapter: '0x613585B786af2d5ecb1c3e712CE5ffFB8f53f155' as Address,
+  VaultfireNameService: '0x247F31bB2b5a0d28E68bf24865AA242965FF99cd' as Address,
+  FlourishingMetricsOracle: '0x630C43F763a332793C421C788B8b1CCC5A3122E7' as Address,
+  MultisigGovernance: '0x889f5cfb142Bb6E72CB0C633800324C335eED9A4' as Address,
+  VaultfireTeleporterBridge: '0xe2aDfe84703dd6B5e421c306861Af18F962fDA91' as Address,
+  DilithiumAttestor: '0xc2F789d82ef55bAbb9Df38f61E606cD34628dB38' as Address,
+  ProductionBeliefAttestationVerifier: '0xe0B709511438D0aCfD5D2d69F40b90C4c27eC760' as Address,
+  BeliefAttestationVerifier: '0xaEBD3d62DF9bF5A5b99c289756c4cd203AC879e5' as Address,
+  MissionEnforcement: '0x690411685278548157409FA7AC8279A5B1Fb6F78' as Address,
+  AntiSurveillance: '0xcf64D815F5424B7937aB226bC733Ed35ab6CaDcB' as Address,
+  PrivacyGuarantees: '0x281814eF92062DA8049Fe5c4743c4Aef19a17380' as Address,
 };
 
 // ─── Chain configuration ──────────────────────────────────────────────────────
