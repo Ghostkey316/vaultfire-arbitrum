@@ -6,6 +6,9 @@
 [![ERC-8004](https://img.shields.io/badge/ERC-8004-purple)](https://github.com/Ghostkey316/vaultfire-contracts)
 [![npm](https://img.shields.io/badge/npm-%40vaultfire%2Farbitrum-red)](https://www.npmjs.com/package/@vaultfire/arbitrum)
 
+
+> **⚠️ Alpha Software** — Vaultfire Protocol is in active development. Smart contracts are deployed on Arbitrum mainnet but have **not been formally audited** by a third-party security firm. Do not deposit more than you can afford to lose. See [LICENSE](./LICENSE) for warranty disclaimers.
+
 > **Morals over metrics. Privacy over surveillance. Freedom over control.**
 > Making human thriving more profitable than extraction.
 
