@@ -426,6 +426,8 @@ npm run verify
 | `vaultfire-avalanche` | Avalanche deployment **(LIVE)** | [github.com/Ghostkey316/vaultfire-avalanche](https://github.com/Ghostkey316/vaultfire-avalanche) |
 | `vaultfire-polygon` | Polygon deployment (Pre-Deployment) | [github.com/Ghostkey316/vaultfire-polygon](https://github.com/Ghostkey316/vaultfire-polygon) |
 | `vaultfire-solana` | Solana deployment (Pre-Deployment) | [github.com/Ghostkey316/vaultfire-solana](https://github.com/Ghostkey316/vaultfire-solana) |
+| `@vaultfire/a2a` | A2A Agent Card enrichment with on-chain trust | [github.com/Ghostkey316/vaultfire-a2a](https://github.com/Ghostkey316/vaultfire-a2a) |
+| `vaultfire-langgraph-demo` | LangGraph trust-gated demo agent | [github.com/Ghostkey316/vaultfire-langgraph-demo](https://github.com/Ghostkey316/vaultfire-langgraph-demo) |
 
 ---
 
