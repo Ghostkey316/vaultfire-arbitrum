@@ -416,6 +416,7 @@ npm run verify
 
 | Package | Description | GitHub |
 |---------|-------------|--------|
+| `@vaultfire/langchain` | LangChain/LangGraph integration — 9 tools, 3-line setup | [github.com/Ghostkey316/vaultfire-langchain](https://github.com/Ghostkey316/vaultfire-langchain) |
 | `@vaultfire/agent-sdk` | Core agent SDK | [github.com/Ghostkey316/vaultfire-agent-sdk](https://github.com/Ghostkey316/vaultfire-agent-sdk) |
 | `@vaultfire/x402` | x402 agent payment protocol | [github.com/Ghostkey316/vaultfire-x402](https://github.com/Ghostkey316/vaultfire-x402) |
 | `@vaultfire/xmtp` | Trust-gated XMTP messaging | [github.com/Ghostkey316/vaultfire-xmtp](https://github.com/Ghostkey316/vaultfire-xmtp) |
