@@ -58,7 +58,7 @@ The **stars of the protocol** are the bond contracts. AI Partnership Bonds and A
 
 ## Contract Addresses — Arbitrum One
 
-> **16 contracts deployed and verified on Arbitrum One.**
+> **17 contracts deployed and verified on Arbitrum One.**
 
 | Contract | Address | Explorer |
 |----------|---------|----------|
@@ -79,6 +79,7 @@ The **stars of the protocol** are the bond contracts. AI Partnership Bonds and A
 | MissionEnforcement | [0x6904...6F78](https://arbiscan.io/address/0x690411685278548157409FA7AC8279A5B1Fb6F78) | [Arbiscan ↗](https://arbiscan.io/address/0x690411685278548157409FA7AC8279A5B1Fb6F78) |
 | AntiSurveillance | [0xcf64...aDcB](https://arbiscan.io/address/0xcf64D815F5424B7937aB226bC733Ed35ab6CaDcB) | [Arbiscan ↗](https://arbiscan.io/address/0xcf64D815F5424B7937aB226bC733Ed35ab6CaDcB) |
 | PrivacyGuarantees | [0x2818...7380](https://arbiscan.io/address/0x281814eF92062DA8049Fe5c4743c4Aef19a17380) | [Arbiscan ↗](https://arbiscan.io/address/0x281814eF92062DA8049Fe5c4743c4Aef19a17380) |
+| VaultfireTrustAttestation (ZK) | [0xE2f7...D5045](https://arbiscan.io/address/0xE2f75A4B14ffFc1f9C2b1ca22Fdd6877E5BD5045) | [Arbiscan ↗](https://arbiscan.io/address/0xE2f75A4B14ffFc1f9C2b1ca22Fdd6877E5BD5045) |
 
 **Deployer:** `0xA054f831B562e729F8D268291EBde1B2EDcFb84F`  
 **Chain ID:** 42161  
@@ -113,7 +114,7 @@ console.log(config.chainId);  // 42161
 console.log(config.usdc);     // '0xaf88d065e77c8cC2239327C5EDb3A432268e5831'
 
 // Check deployment status
-console.log(client.isFullyDeployed());       // true (all 16 contracts deployed)
+console.log(client.isFullyDeployed());       // true (all 17 contracts deployed)
 console.log(client.getPendingContracts());   // [] (empty — all contracts live)
 ```
 
