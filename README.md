@@ -417,26 +417,24 @@ npm run verify
 
 ## Vaultfire Ecosystem
 
-| Package | Description | GitHub |
-|---------|-------------|--------|
-| `@vaultfire/langchain` | LangChain/LangGraph integration — 9 tools, 3-line setup | [github.com/Ghostkey316/vaultfire-langchain](https://github.com/Ghostkey316/vaultfire-langchain) |
-| `@vaultfire/agent-sdk` | Core agent SDK | [github.com/Ghostkey316/vaultfire-agent-sdk](https://github.com/Ghostkey316/vaultfire-agent-sdk) |
-| `@vaultfire/x402` | x402 agent payment protocol | [github.com/Ghostkey316/vaultfire-x402](https://github.com/Ghostkey316/vaultfire-x402) |
-| `@vaultfire/xmtp` | Trust-gated XMTP messaging | [github.com/Ghostkey316/vaultfire-xmtp](https://github.com/Ghostkey316/vaultfire-xmtp) |
-| `@vaultfire/vns` | Vaultfire Name Service SDK | [github.com/Ghostkey316/vaultfire-vns](https://github.com/Ghostkey316/vaultfire-vns) |
-| `vaultfire-contracts` | ABIs and deployment addresses | [github.com/Ghostkey316/vaultfire-contracts](https://github.com/Ghostkey316/vaultfire-contracts) |
-| `vaultfire-base` | Base deployment **(LIVE)** | [github.com/Ghostkey316/vaultfire-base](https://github.com/Ghostkey316/vaultfire-base) |
-| `vaultfire-avalanche` | Avalanche deployment **(LIVE)** | [github.com/Ghostkey316/vaultfire-avalanche](https://github.com/Ghostkey316/vaultfire-avalanche) |
-| `vaultfire-polygon` | Polygon deployment (Pre-Deployment) | [github.com/Ghostkey316/vaultfire-polygon](https://github.com/Ghostkey316/vaultfire-polygon) |
-| `vaultfire-solana` | Solana deployment (Pre-Deployment) | [github.com/Ghostkey316/vaultfire-solana](https://github.com/Ghostkey316/vaultfire-solana) |
-| `@vaultfire/a2a` | A2A Agent Card enrichment with on-chain trust | [github.com/Ghostkey316/vaultfire-a2a](https://github.com/Ghostkey316/vaultfire-a2a) |
-| `vaultfire-langgraph-demo` | LangGraph trust-gated demo agent | [github.com/Ghostkey316/vaultfire-langgraph-demo](https://github.com/Ghostkey316/vaultfire-langgraph-demo) |
-| [`@vaultfire/enterprise`](https://github.com/Ghostkey316/vaultfire-enterprise) | Enterprise IAM bridge — Okta/Azure AD to on-chain trust |
-| [`vaultfire-agents`](https://github.com/Ghostkey316/vaultfire-agents) | 3 reference agents with live on-chain trust verification |
+| Package | Description |
+|---|---|
+| [`@vaultfire/agent-sdk`](https://github.com/Ghostkey316/vaultfire-sdk) | Core SDK — register agents, create bonds, query reputation |
+| [`@vaultfire/langchain`](https://github.com/Ghostkey316/vaultfire-langchain) | LangChain / LangGraph integration |
+| [`@vaultfire/a2a`](https://github.com/Ghostkey316/vaultfire-a2a) | Agent-to-Agent (A2A) protocol bridge |
+| [`@vaultfire/enterprise`](https://github.com/Ghostkey316/vaultfire-enterprise) | Enterprise IAM bridge (Okta, Azure AD, OIDC) |
+| [`@vaultfire/mcp-server`](https://github.com/Ghostkey316/vaultfire-mcp-server) | MCP server for Claude, Copilot, Cursor |
+| [`@vaultfire/openai-agents`](https://github.com/Ghostkey316/vaultfire-openai-agents) | OpenAI Agents SDK integration |
+| [`@vaultfire/vercel-ai`](https://github.com/Ghostkey316/vaultfire-vercel-ai) | Vercel AI SDK middleware and tools |
+| [`@vaultfire/xmtp`](https://github.com/Ghostkey316/vaultfire-xmtp) | XMTP messaging with trust verification |
+| [`@vaultfire/x402`](https://github.com/Ghostkey316/vaultfire-x402) | X402 payment protocol with trust gates |
+| [`@vaultfire/vns`](https://github.com/Ghostkey316/vaultfire-vns) | Vaultfire Name Service — human-readable agent IDs |
+| [`vaultfire-crewai`](https://github.com/Ghostkey316/vaultfire-crewai) | CrewAI integration (Python) |
+| [`vaultfire-agents`](https://github.com/Ghostkey316/vaultfire-agents) | 3 reference agents with live on-chain trust |
 | [`vaultfire-a2a-trust-extension`](https://github.com/Ghostkey316/vaultfire-a2a-trust-extension) | A2A Trust Extension spec — on-chain trust for Agent Cards |
 | [`vaultfire-showcase`](https://github.com/Ghostkey316/vaultfire-showcase) | Why Vaultfire Bonds beat trust scores — live proof |
 | [`vaultfire-whitepaper`](https://github.com/Ghostkey316/vaultfire-whitepaper) | Trust Framework whitepaper — economic accountability for AI |
-
+| [`vaultfire-docs`](https://github.com/Ghostkey316/vaultfire-docs) | Developer portal — quickstart, playground, framework picker |
 ---
 
 ## Mission
