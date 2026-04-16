@@ -428,6 +428,11 @@ npm run verify
 | `vaultfire-solana` | Solana deployment (Pre-Deployment) | [github.com/Ghostkey316/vaultfire-solana](https://github.com/Ghostkey316/vaultfire-solana) |
 | `@vaultfire/a2a` | A2A Agent Card enrichment with on-chain trust | [github.com/Ghostkey316/vaultfire-a2a](https://github.com/Ghostkey316/vaultfire-a2a) |
 | `vaultfire-langgraph-demo` | LangGraph trust-gated demo agent | [github.com/Ghostkey316/vaultfire-langgraph-demo](https://github.com/Ghostkey316/vaultfire-langgraph-demo) |
+| [`@vaultfire/enterprise`](https://github.com/Ghostkey316/vaultfire-enterprise) | Enterprise IAM bridge — Okta/Azure AD to on-chain trust |
+| [`vaultfire-agents`](https://github.com/Ghostkey316/vaultfire-agents) | 3 reference agents with live on-chain trust verification |
+| [`vaultfire-a2a-trust-extension`](https://github.com/Ghostkey316/vaultfire-a2a-trust-extension) | A2A Trust Extension spec — on-chain trust for Agent Cards |
+| [`vaultfire-showcase`](https://github.com/Ghostkey316/vaultfire-showcase) | Why Vaultfire Bonds beat trust scores — live proof |
+| [`vaultfire-whitepaper`](https://github.com/Ghostkey316/vaultfire-whitepaper) | Trust Framework whitepaper — economic accountability for AI |
 
 ---
 
