@@ -123,12 +123,12 @@ describe('Vaultfire Arbitrum — Contract Addresses', () => {
   });
 
   it('TC-014: AIPartnershipBondsV2 has real deployed address', () => {
-    assert.strictEqual(ARBITRUM_CONTRACTS.AIPartnershipBondsV2, '0x0E777878C5b5248E1b52b09Ab5cdEb2eD6e7Da58');
+    assert.strictEqual(ARBITRUM_CONTRACTS.AIPartnershipBondsV2, '0xdB54B8925664816187646174bdBb6Ac658A55a5F');
     assert.ok(isValidAddress(ARBITRUM_CONTRACTS.AIPartnershipBondsV2));
   });
 
   it('TC-015: AIAccountabilityBondsV2 has real deployed address', () => {
-    assert.strictEqual(ARBITRUM_CONTRACTS.AIAccountabilityBondsV2, '0xfDdd2B1597c87577543176AB7f49D587876563D2');
+    assert.strictEqual(ARBITRUM_CONTRACTS.AIAccountabilityBondsV2, '0xef3A944f4d7bb376699C83A29d7Cb42C90D9B6F0');
     assert.ok(isValidAddress(ARBITRUM_CONTRACTS.AIAccountabilityBondsV2));
   });
 

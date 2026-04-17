@@ -18,8 +18,8 @@ export const ARBITRUM_CONTRACTS: ContractAddresses = {
 
   // ✅ Deployed — Vaultfire contracts live on Arbitrum One (deployed 2026-04-15)
   ERC8004IdentityRegistry: '0x6298c62FDA57276DC60de9E716fbBAc23d06D5F1' as Address,
-  AIPartnershipBondsV2: '0x0E777878C5b5248E1b52b09Ab5cdEb2eD6e7Da58' as Address,
-  AIAccountabilityBondsV2: '0xfDdd2B1597c87577543176AB7f49D587876563D2' as Address,
+  AIPartnershipBondsV2: '0xdB54B8925664816187646174bdBb6Ac658A55a5F' as Address,
+  AIAccountabilityBondsV2: '0xef3A944f4d7bb376699C83A29d7Cb42C90D9B6F0' as Address,
   ERC8004ReputationRegistry: '0x8aceF0Bc7e07B2dE35E9069663953f41B5422218' as Address,
   ERC8004ValidationRegistry: '0x1A80F77e12f1bd04538027aed6d056f5DCcDCD3C' as Address,
   VaultfireERC8004Adapter: '0x613585B786af2d5ecb1c3e712CE5ffFB8f53f155' as Address,

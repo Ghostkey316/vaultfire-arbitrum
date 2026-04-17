@@ -64,8 +64,8 @@ The **stars of the protocol** are the bond contracts. AI Partnership Bonds and A
 |----------|---------|----------|
 | **USDC** (Circle-native) | `0xaf88d065e77c8cC2239327C5EDb3A432268e5831` | [Arbiscan ↗](https://arbiscan.io/address/0xaf88d065e77c8cC2239327C5EDb3A432268e5831) |
 | ERC8004IdentityRegistry | [0x6298...D5F1](https://arbiscan.io/address/0x6298c62FDA57276DC60de9E716fbBAc23d06D5F1) | [Arbiscan ↗](https://arbiscan.io/address/0x6298c62FDA57276DC60de9E716fbBAc23d06D5F1) |
-| AIPartnershipBondsV2 | [0x0E77...Da58](https://arbiscan.io/address/0x0E777878C5b5248E1b52b09Ab5cdEb2eD6e7Da58) | [Arbiscan ↗](https://arbiscan.io/address/0x0E777878C5b5248E1b52b09Ab5cdEb2eD6e7Da58) |
-| AIAccountabilityBondsV2 | [0xfDdd...63D2](https://arbiscan.io/address/0xfDdd2B1597c87577543176AB7f49D587876563D2) | [Arbiscan ↗](https://arbiscan.io/address/0xfDdd2B1597c87577543176AB7f49D587876563D2) |
+| AIPartnershipBondsV2 | [0x0E77...Da58](https://arbiscan.io/address/0xdB54B8925664816187646174bdBb6Ac658A55a5F) | [Arbiscan ↗](https://arbiscan.io/address/0xdB54B8925664816187646174bdBb6Ac658A55a5F) |
+| AIAccountabilityBondsV2 | [0xfDdd...63D2](https://arbiscan.io/address/0xef3A944f4d7bb376699C83A29d7Cb42C90D9B6F0) | [Arbiscan ↗](https://arbiscan.io/address/0xef3A944f4d7bb376699C83A29d7Cb42C90D9B6F0) |
 | ERC8004ReputationRegistry | [0x8ace...2218](https://arbiscan.io/address/0x8aceF0Bc7e07B2dE35E9069663953f41B5422218) | [Arbiscan ↗](https://arbiscan.io/address/0x8aceF0Bc7e07B2dE35E9069663953f41B5422218) |
 | ERC8004ValidationRegistry | [0x1A80...CD3C](https://arbiscan.io/address/0x1A80F77e12f1bd04538027aed6d056f5DCcDCD3C) | [Arbiscan ↗](https://arbiscan.io/address/0x1A80F77e12f1bd04538027aed6d056f5DCcDCD3C) |
 | VaultfireERC8004Adapter | [0x6135...f155](https://arbiscan.io/address/0x613585B786af2d5ecb1c3e712CE5ffFB8f53f155) | [Arbiscan ↗](https://arbiscan.io/address/0x613585B786af2d5ecb1c3e712CE5ffFB8f53f155) |
