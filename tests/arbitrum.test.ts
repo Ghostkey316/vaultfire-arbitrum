@@ -94,7 +94,7 @@ describe('Vaultfire Arbitrum — Config Validation', () => {
   it('TC-009: Deployer address matches expected', () => {
     assert.strictEqual(
       ARBITRUM_CONFIG.deployer,
-      '0xA054f831B562e729F8D268291EBde1B2EDcFb84F'
+      '0xfA15Ee28939B222B0448261A22156070f0A7813C'
     );
   });
 
@@ -203,7 +203,7 @@ describe('Vaultfire Arbitrum — Deployed State Validation', () => {
     const client = new VaultfireArbitrumClient();
     await assert.rejects(
       () => client.registerAgent({
-        agentAddress: '0xA054f831B562e729F8D268291EBde1B2EDcFb84F',
+        agentAddress: '0xfA15Ee28939B222B0448261A22156070f0A7813C',
         name: 'TestAgent',
       }),
       NoWalletError
@@ -214,7 +214,7 @@ describe('Vaultfire Arbitrum — Deployed State Validation', () => {
     const client = new VaultfireArbitrumClient();
     try {
       await client.registerAgent({
-        agentAddress: '0xA054f831B562e729F8D268291EBde1B2EDcFb84F',
+        agentAddress: '0xfA15Ee28939B222B0448261A22156070f0A7813C',
         name: 'TestAgent',
       });
     } catch (err) {
@@ -561,10 +561,10 @@ describe('Vaultfire Arbitrum — Utilities', () => {
 
   it('TC-076: getAddressUrl builds correct Arbiscan URL', () => {
     const client = new VaultfireArbitrumClient();
-    const url = client.getAddressUrl('0xA054f831B562e729F8D268291EBde1B2EDcFb84F');
+    const url = client.getAddressUrl('0xfA15Ee28939B222B0448261A22156070f0A7813C');
     assert.strictEqual(
       url,
-      'https://arbiscan.io/address/0xA054f831B562e729F8D268291EBde1B2EDcFb84F'
+      'https://arbiscan.io/address/0xfA15Ee28939B222B0448261A22156070f0A7813C'
     );
   });
 

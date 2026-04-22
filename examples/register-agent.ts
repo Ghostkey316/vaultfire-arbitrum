@@ -16,7 +16,7 @@ const PRIVATE_KEY = process.env['PRIVATE_KEY'] as `0x${string}` | undefined;
 
 // The agent address you want to register (can be different from the signer)
 const AGENT_ADDRESS = (process.env['AGENT_ADDRESS'] ??
-  '0xA054f831B562e729F8D268291EBde1B2EDcFb84F') as Address;
+  '0xfA15Ee28939B222B0448261A22156070f0A7813C') as Address;
 
 async function main() {
   if (!PRIVATE_KEY) {

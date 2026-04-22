@@ -45,7 +45,7 @@ export const ARBITRUM_CONFIG: ChainConfig = {
   explorerApi: 'https://api.arbiscan.io/api',
   usdc: '0xaf88d065e77c8cC2239327C5EDb3A432268e5831' as Address,
   nativeToken: 'ETH',
-  deployer: '0xA054f831B562e729F8D268291EBde1B2EDcFb84F' as Address,
+  deployer: '0xfA15Ee28939B222B0448261A22156070f0A7813C' as Address,
   contracts: ARBITRUM_CONTRACTS,
 };
 

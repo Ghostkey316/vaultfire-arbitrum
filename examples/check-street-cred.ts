@@ -34,7 +34,7 @@ import type { Address } from '../src/index.js';
 // ─── Setup ────────────────────────────────────────────────────────────────────
 
 const AGENT_ADDRESS = (process.env['AGENT_ADDRESS'] ??
-  '0xA054f831B562e729F8D268291EBde1B2EDcFb84F') as Address;
+  '0xfA15Ee28939B222B0448261A22156070f0A7813C') as Address;
 
 function renderScoreBar(score: number, max: number, width: number = 30): string {
   const filled = Math.round((score / max) * width);
