@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./brand/logo-full.png" alt="Vaultfire" width="420" />
+</p>
+
 # Vaultfire Protocol on Arbitrum One — Know Your Agent (KYA)
 
 [![Status: Deployed](https://img.shields.io/badge/Status-Deployed-brightgreen)](https://github.com/Ghostkey316/vaultfire-arbitrum)
@@ -81,7 +85,7 @@ The **stars of the protocol** are the bond contracts. AI Partnership Bonds and A
 | PrivacyGuarantees | [0x2818...7380](https://arbiscan.io/address/0x281814eF92062DA8049Fe5c4743c4Aef19a17380) | [Arbiscan ↗](https://arbiscan.io/address/0x281814eF92062DA8049Fe5c4743c4Aef19a17380) |
 | VaultfireTrustAttestation (ZK) | [0xE2f7...D5045](https://arbiscan.io/address/0xE2f75A4B14ffFc1f9C2b1ca22Fdd6877E5BD5045) | [Arbiscan ↗](https://arbiscan.io/address/0xE2f75A4B14ffFc1f9C2b1ca22Fdd6877E5BD5045) |
 
-**Deployer:** `0xA054f831B562e729F8D268291EBde1B2EDcFb84F`  
+**Deployer:** `0xfA15Ee28939B222B0448261A22156070f0A7813C`  
 **Chain ID:** 42161  
 **Explorer:** [arbiscan.io](https://arbiscan.io)
 
